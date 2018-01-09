@@ -3,7 +3,7 @@
  * @param {object} config
  * @param {string} config.url 图片的 url 或者 src
  * @param {string} config.type 'image/jpeg' or 'image/png'
- * @param {string} config.quality 0 ～ 100
+ * @param {string} config.quality 0 ～ 1
  * @param {number} config.width 
  * @param {number} config.height 
  * @param {function(string)} config.callback
@@ -12,7 +12,7 @@
 function compressImage(config) {
   config = Object.assign({
     type: 'image/jpeg',
-    quality: 95,
+    quality: 0.95,
     width: 1080,
     height: 1080,
     callback: (data)=>{}
@@ -56,7 +56,7 @@ function compressImage(config) {
 
     ctx.drawImage(img, 0, 0, targetWidth, targetHeight)
 
-    config.callback(canvas.toDataURL('image/jpeg', 1))
+    config.callback(canvas.toDataURL(config.type, config.quality))
     
     $canvas.remove()
     $img.remove()
