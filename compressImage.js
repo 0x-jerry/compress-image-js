@@ -7,7 +7,6 @@
  * @param {number} config.width 
  * @param {number} config.height 
  * @param {function(string)} config.callback
- * @returns {string} 
  */
 function compressImage(config) {
   config = Object.assign({
