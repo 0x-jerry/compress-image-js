@@ -1,11 +1,7 @@
-$(()=>{
-  $('#file').on('change', (e) => {
-    file = e.target.files[0]
-  })
-  compressImage({
-    url:'http://m.xiguacity.cn/static/QuantumComputer.jpg',
-    callback: (data) =>{
-      $('#show').attr('src', data)
-    }
-  })
-})
+compressImage({
+  url: document.getElementById('origin').getAttribute('src'),
+  width: 200,
+  callback: data => {
+    document.getElementById('compressed').setAttribute('src', data);
+  }
+});
